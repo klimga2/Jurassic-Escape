@@ -6,5 +6,9 @@ const initialState = {
 export const PlayersSlice = createSlice({
   name: "Players",
   initialState,
-  reducers: {},
+  reducers: {
+    setPlayers: (state, action) => {},
+  },
 });
+export const { setPlayers } = PlayersSlice.actions;
+export default PlayersSlice.reducer;
