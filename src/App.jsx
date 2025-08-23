@@ -1,15 +1,15 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { Provider } from "react-redux";
+import { store } from "./ToolKit/store";
 import "./App.css";
 import AppRouter from "./Routes/Routes";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <Provider store={store}>
       <AppRouter />
-    </>
+    </Provider>
   );
 }
 

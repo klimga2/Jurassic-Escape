@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  Players: [],
+  Players: ["Sin jugadores"],
 };
 
 export const PlayersSlice = createSlice({
   name: "Players",
   initialState,
   reducers: {
-    setPlayers: (state, action) => {},
+    setPlayers: (state, action) => {
+      state.Players = action.payload;
+      console.log(Players);
+    },
   },
 });
 export const { setPlayers } = PlayersSlice.actions;
