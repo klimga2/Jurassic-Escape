@@ -17,9 +17,7 @@ const Register = () => {
   return (
     <>
       <h1>Register</h1>
-      {Players.map((e) => (
-        <p key={e.id}></p>
-      ))}
+
       <input type="text" value={Nombre} onChange={Change} />
       <button onClick={Add}>Agregar</button>
     </>
