@@ -1,17 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
-  Players: ["Sin jugadores"],
+  Players: [], // será un arreglo de objetos { nombre: "", equipo: "" }
 };
 
 export const PlayersSlice = createSlice({
   name: "Players",
   initialState,
   reducers: {
-    setPlayers: (state, action) => {
-      state.Players = action.payload;
-      console.log(Players);
+    // Agregar un nuevo jugador
+    addPlayer: (state, action) => {
+      const { nombre, equipo } = action.payload;
+      state.Players.push({ nombre, equipo });
+    },
+
+    // Cambiar el equipo de un jugador
+    setTeam: (state, action) => {
+      const { nombre, equipo } = action.payload;
+      const jugador = state.Players.find((p) => p.nombre === nombre);
+      if (jugador) {
+        jugador.equipo = equipo;
+      }
     },
   },
 });
-export const { setPlayers } = PlayersSlice.actions;
+
+export const { addPlayer, setTeam } = PlayersSlice.actions;
 export default PlayersSlice.reducer;
