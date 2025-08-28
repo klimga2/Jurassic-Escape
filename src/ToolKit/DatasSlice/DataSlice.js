@@ -232,26 +232,11 @@ const initialState = {
   ],
 };
 
-export const PlayersSlice = createSlice({
-  name: "Players",
+export const DatasSlice = createSlice({
+  name: "Datas",
   initialState,
-  reducers: {
-    // Agregar un nuevo jugador
-    addPlayer: (state, action) => {
-      const { nombre, equipo } = action.payload;
-      state.Players.push({ nombre, equipo });
-    },
-
-    // Cambiar el equipo de un jugador
-    setTeam: (state, action) => {
-      const { nombre, equipo } = action.payload;
-      const jugador = state.Players.find((p) => p.nombre === nombre);
-      if (jugador) {
-        jugador.equipo = equipo;
-      }
-    },
-  },
+  reducers: {},
 });
 
-export const { addPlayer, setTeam } = PlayersSlice.actions;
-export default PlayersSlice.reducer;
+export const {} = DatasSlice.actions;
+export default DatasSlice.reducer;
