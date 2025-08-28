@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Provider } from "react-redux";
-import { store } from "./ToolKit/store";
+import store from "./toolkit/Store.js";
 import "./App.css";
 import AppRouter from "./Routes/Routes";
 function App() {
