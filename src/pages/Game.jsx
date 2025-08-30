@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import Dinosaurio from "../assets/Dinosaurio.png";
-import Evento from "../assets/Evento.png";
-import Objeto from "../assets/Objeto.png";
-import Recurso from "../assets/Recurso.png";
+import imgDinosaurio from "../assets/Dinosaurio.png";
+import imgEvento from "../assets/Evento.png";
+import imgObjeto from "../assets/Objeto.png";
+import imgRecurso from "../assets/Recurso.png";
 const Game = () => {
   const players = useSelector((state) => state.Players.Players);
   const data = useSelector((state) => state.Datas); // cartas del slice
@@ -70,7 +70,9 @@ const Game = () => {
     setCurrentCard(null);
     setTurnIndex(turnIndex + 1);
   };
-
+  const buttonstyle = {
+    background: "#c9c9c9ff",
+  };
   return (
     <div
       style={{
@@ -90,10 +92,24 @@ const Game = () => {
       </p>
 
       <div style={{ marginTop: "20px" }}>
-        <button onClick={() => handleCardClick("Eventos")}>Evento</button>
-        <button onClick={() => handleCardClick("Dinosaurios")}>Ataque</button>
-        <button onClick={() => handleCardClick("objetos")}>Objeto</button>
-        <button onClick={() => handleCardClick("Recursos")}>Recurso</button>
+        <button onClick={() => handleCardClick("Eventos")} style={buttonstyle}>
+          <img src={imgEvento} alt="" />
+        </button>
+        <button
+          onClick={() => handleCardClick("Dinosaurios")}
+          style={buttonstyle}
+        >
+          {" "}
+          <img src={imgDinosaurio} alt="" />
+        </button>
+        <button onClick={() => handleCardClick("objetos")} style={buttonstyle}>
+          {" "}
+          <img src={imgObjeto} alt="" />
+        </button>
+        <button onClick={() => handleCardClick("Recursos")} style={buttonstyle}>
+          {" "}
+          <img src={imgRecurso} alt="" />
+        </button>
       </div>
 
       {/* Pop-up de carta */}
