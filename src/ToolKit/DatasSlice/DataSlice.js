@@ -14,6 +14,20 @@ const initialState = {
       img: Recursogrande,
     },
     {
+      nombre: "Metal",
+      tipo: "Recurso",
+      descripcion:
+        "Material resistente y maleable, esencial para construir y reparar piezas de la máquina.",
+      img: Recursogrande,
+    },
+    {
+      nombre: "Tornillos",
+      tipo: "Recurso",
+      descripcion:
+        "Elementos pequeños de sujeción, necesarios para ensamblar las partes de la máquina.",
+      img: Recursogrande,
+    },
+    {
       nombre: "Tornillos",
       tipo: "Recurso",
       descripcion:
@@ -25,6 +39,20 @@ const initialState = {
       tipo: "Recurso",
       descripcion:
         "Conductores eléctricos que permiten transmitir energía entre los componentes.",
+      img: Recursogrande,
+    },
+    {
+      nombre: "Cables",
+      tipo: "Recurso",
+      descripcion:
+        "Conductores eléctricos que permiten transmitir energía entre los componentes.",
+      img: Recursogrande,
+    },
+    {
+      nombre: "Madera",
+      tipo: "Recurso",
+      descripcion:
+        "Material básico y versátil, útil como soporte o refuerzo improvisado en la máquina.",
       img: Recursogrande,
     },
     {
