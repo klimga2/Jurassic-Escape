@@ -31,7 +31,7 @@ const Game = () => {
     // copiar cartas iniciales
     setRemainingCards({
       Eventos: [...data.Eventos],
-      objetos: [...data.objetos],
+      objetos: [...data.Objetos],
       Recursos: [...data.Recursos],
       Dinosaurios: [...data.Dinosaurios],
     });
@@ -110,21 +110,70 @@ const Game = () => {
               borderRadius: "10px",
               width: "80%",
               maxWidth: "400px",
-              color: "rgb(0,0,0,)",
+              color: "black",
             }}
           >
-            <h3>{currentCard.nombre}</h3>
-            <p>
-              <b>Tipo:</b> {currentCard.tipo || "Especial"}
-            </p>
-            <p>{currentCard.descripcion}</p>
-            {currentCard.efecto && (
+            {/* Título */}
+            <h3>{currentCard?.nombre}</h3>
+
+            {/* Tipo (si existe) */}
+            {currentCard?.tipo && (
+              <p>
+                <b>Tipo:</b> {currentCard.tipo}
+              </p>
+            )}
+
+            {/* Nivel de poder (para enemigos) */}
+            {currentCard?.nivelPoder && (
+              <p>
+                <b>{currentCard.nivelPoder}</b>
+              </p>
+            )}
+
+            {/* Descripción */}
+            <p>{currentCard?.descripcion}</p>
+
+            {/* Efecto */}
+            {currentCard?.efecto && (
               <p>
                 <b>Efecto:</b> {currentCard.efecto}
               </p>
             )}
 
-            <button onClick={siguienteTurno} style={{ marginTop: "15px" }}>
+            {/* Casos especiales (eventos/enemigos) */}
+            {currentCard?.caso1 && (
+              <div>
+                <p>
+                  <b>Resultado:</b>
+                </p>
+                <ul>
+                  {currentCard?.caso1 && <li>{currentCard.caso1}</li>}
+                  {currentCard?.caso2 && <li>{currentCard.caso2}</li>}
+                  {currentCard?.caso3 && <li>{currentCard.caso3}</li>}
+                </ul>
+              </div>
+            )}
+
+            {/* Recordatorio (solo enemigos o cartas específicas) */}
+            {currentCard?.recordatorio && (
+              <p style={{ fontStyle: "italic", fontSize: "0.9em" }}>
+                ⚠️ {currentCard.recordatorio}
+              </p>
+            )}
+
+            {/* Botón siguiente turno */}
+            <button
+              onClick={siguienteTurno}
+              style={{
+                marginTop: "15px",
+                padding: "8px 12px",
+                borderRadius: "5px",
+                border: "none",
+                background: "#2d4739",
+                color: "white",
+                cursor: "pointer",
+              }}
+            >
               Siguiente Turno
             </button>
           </div>
