@@ -1,3 +1,4 @@
+import Brujula from "../assets/Brujula.png";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Buttons";
 const Start = () => {
@@ -7,8 +8,13 @@ const Start = () => {
   };
   return (
     <>
-      <h1>Start</h1>
-      <button onClick={Go}>Registro</button>
+      <img src={Brujula} alt="" />
+      <h1>CREA UNA SALA</h1>
+      <p>
+        ¡Forma tu equipo, enfrenta los retos y descubre si lograrás escapar!
+      </p>
+
+      <button onClick={Go}>NEW GAME</button>
     </>
   );
 };

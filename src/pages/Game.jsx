@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-
+import Dinosaurio from "../assets/Dinosaurio.png";
+import Evento from "../assets/Evento.png";
+import Objeto from "../assets/Objeto.png";
+import Recurso from "../assets/Recurso.png";
 const Game = () => {
   const players = useSelector((state) => state.Players.Players);
   const data = useSelector((state) => state.Datas); // cartas del slice
@@ -80,6 +83,11 @@ const Game = () => {
       <h2>
         Es turno de <b>{jugadorActual?.nombre}</b> ({jugadorActual?.equipo})
       </h2>
+      <p>
+        {" "}
+        Usa los botones para revelar cartas de eventos, objetos, recursos o
+        encuentros con dinosaurios.
+      </p>
 
       <div style={{ marginTop: "20px" }}>
         <button onClick={() => handleCardClick("Eventos")}>Evento</button>
@@ -115,6 +123,14 @@ const Game = () => {
           >
             {/* Título */}
             <h3>{currentCard?.nombre}</h3>
+
+            <img
+              src={currentCard.img}
+              alt=""
+              style={{
+                width: "200px",
+              }}
+            />
 
             {/* Tipo (si existe) */}
             {currentCard?.tipo && (
