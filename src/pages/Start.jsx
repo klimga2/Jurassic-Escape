@@ -1,6 +1,6 @@
 import Brujula from "../assets/Brujula.png";
 import { useNavigate } from "react-router-dom";
-import "./Start.css";
+import "./start.css";
 
 const Start = () => {
   const Nav = useNavigate();
