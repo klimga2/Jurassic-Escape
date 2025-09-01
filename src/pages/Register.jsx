@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPlayer } from "../ToolKit/PlayersSlice/PlayersSlice";
 import { useNavigate } from "react-router-dom";
+import "./Register.css"; // importa tu CSS aquí
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -10,19 +11,15 @@ const Register = () => {
 
   const [participantes, setParticipantes] = useState(null);
   const [nombre, setNombre] = useState("");
-  const [equipo, setEquipo] = useState(""); // "Rojo" o "Azul"
+  const [equipo, setEquipo] = useState("");
   const [ocultar, setOcultar] = useState(false);
 
-  // contadores de equipos
   const countRojo = players.filter((p) => p.equipo === "Rojo").length;
   const countAzul = players.filter((p) => p.equipo === "Azul").length;
-
-  // máximo permitido en cada equipo
   const maxPorEquipo = participantes ? participantes / 2 : 0;
 
   const handleAdd = () => {
     if (nombre.trim() !== "" && equipo !== "") {
-      // validación: no dejar pasar más del límite por equipo
       if (equipo === "Rojo" && countRojo >= maxPorEquipo) {
         alert("El equipo ROJO ya está completo");
         return;
@@ -31,11 +28,9 @@ const Register = () => {
         alert("El equipo AZUL ya está completo");
         return;
       }
-
       dispatch(addPlayer({ nombre, equipo }));
       setNombre("");
       setEquipo("");
-
       if (players.length + 1 >= participantes) {
         setOcultar(true);
       }
@@ -51,71 +46,82 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>MIEMBROS</h2>
-      <p>Numero de jugadores: {participantes || "-"}</p>
+    <div className="register-container">
+      <h2 className="register-title">MIEMBROS</h2>
+      <p className="register-subtitle">
+        Una vez todos estén listos, la app dividirá aleatoriamente a los
+        equipos.
+      </p>
 
-      {ocultar ? (
-        <div>
-          <p>Todos los Participantes ya están</p>
-          <button onClick={go}>Ir a la partida</button>
-        </div>
-      ) : (
-        <div>
-          <div>
+      <div className="participantes">
+        <p>Número de jugadores: {participantes || "-"}</p>
+        <div className="participantes-options">
+          <label>
             <input
               type="radio"
               name="Participantes"
               value={4}
               onClick={handleParticipantes}
             />
-            <label>4</label>
+            4
+          </label>
+          <label>
             <input
               type="radio"
               name="Participantes"
               value={6}
               onClick={handleParticipantes}
             />
-            <label>6</label>
-          </div>
+            6
+          </label>
+        </div>
+      </div>
 
+      {!ocultar ? (
+        <>
+          <span className="section-label">Miembros</span>
           <input
             type="text"
+            className="register-input"
             placeholder="nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
 
-          {/* botones siempre visibles */}
-          <div>
+          <div className="teams">
             <button
-              style={{
-                backgroundColor: equipo === "Rojo" ? "red" : "#f88",
-                color: "white",
-                marginRight: "10px",
-              }}
+              className={`team-button team-rojo ${
+                equipo === "Rojo" ? "active" : ""
+              }`}
               onClick={() => setEquipo("Rojo")}
             >
               ROJO ({countRojo}/{maxPorEquipo})
             </button>
-
             <button
-              style={{
-                backgroundColor: equipo === "Azul" ? "blue" : "#88f",
-                color: "white",
-              }}
+              className={`team-button team-azul ${
+                equipo === "Azul" ? "active" : ""
+              }`}
               onClick={() => setEquipo("Azul")}
             >
               AZUL ({countAzul}/{maxPorEquipo})
             </button>
           </div>
 
-          <button onClick={handleAdd}>+</button>
+          <button className="add-button" onClick={handleAdd}>
+            +
+          </button>
+        </>
+      ) : (
+        <div>
+          <p>Todos los Participantes ya están</p>
+          <button className="allset-button" onClick={go}>
+            ALL SET
+          </button>
         </div>
       )}
 
-      <h3>Jugadores</h3>
-      <ul>
+      <span className="section-label">Equipos</span>
+      <ul className="players-list">
         {players.map((p, i) => (
           <li key={i}>
             {p.nombre} - <b>{p.equipo}</b>
