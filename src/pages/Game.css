@@ -1,14 +1,18 @@
 /* Contenedor general del turno */
 .game-container {
   min-height: 80vh;
+  min-width: 80vw;
+  width: 99vw;
+  height: 99vh;
   padding: 20px;
+  padding-left: 5px;
   text-align: center;
   font-family: "Poppins", sans-serif;
   color: #2d1b0f;
 }
 
 /* Título principal (EQUIPO ROJO, EQUIPO AZUL, etc.) */
-.game-container h2 {
+.game-container h1 {
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 10px;
@@ -17,7 +21,7 @@
 
 /* Descripción debajo del título */
 .game-container p {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #2d1b0f;
   margin-bottom: 25px;
   line-height: 1.4;
@@ -29,6 +33,8 @@
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  position: relative;
+  top: 10%;
 }
 
 .action-button {
@@ -43,6 +49,7 @@
   align-items: center;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.1rem;
 }
 
 .action-button img {
@@ -130,4 +137,51 @@
 .next-turn-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 0px #00000080;
+}
+/* Versión escritorio (a partir de 768px) */
+@media (min-width: 768px) {
+  /* Botones con íconos */
+  .action-buttons {
+    position: relative;
+    top: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dos columnas */
+    grid-template-rows: 1fr 1fr; /* dos filas */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 80px; /* los baja hacia el centro */
+    width: 100%;
+    max-width: 700px; /* ancho máximo del contenedor */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .action-button {
+    width: 100%;
+    height: 140px; /* más altos, estilo Kahoot */
+    border-radius: 16px;
+    background: #ffffff;
+    border: 3px solid #00000030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-size: 1.5rem;
+  }
+
+  .action-button img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .action-button:active {
+    transform: scale(0.96);
+  }
 }

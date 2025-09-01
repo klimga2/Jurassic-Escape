@@ -43,7 +43,7 @@ const Game = () => {
   }, [players, data]);
 
   const jugadorActual = turnOrder[turnIndex % turnOrder.length];
-
+  console.log(jugadorActual);
   const getRandomCard = (type) => {
     let cards = remainingCards[type];
     if (cards.length === 0) {
@@ -81,7 +81,8 @@ const Game = () => {
           jugadorActual?.equipo === "Rojo" ? "#d35656ff" : "#5b83dfff",
       }}
     >
-      <h2>EQUIPO {jugadorActual?.equipo}</h2>
+      <h1>EQUIPO: {jugadorActual?.equipo}</h1>
+      <h2>Turno de: {jugadorActual?.nombre}</h2>
       <p>
         Usa los botones para revelar cartas de eventos, objetos, recursos o
         encuentros con dinosaurios.
@@ -92,24 +93,28 @@ const Game = () => {
           onClick={() => handleCardClick("Eventos")}
           className="action-button"
         >
+          Evento
           <img src={imgEvento} alt="" />
         </button>
         <button
           onClick={() => handleCardClick("Dinosaurios")}
           className="action-button"
         >
+          Dinosaurio
           <img src={imgDinosaurio} alt="" />
         </button>
         <button
           onClick={() => handleCardClick("objetos")}
           className="action-button"
         >
+          Objetos
           <img src={imgObjeto} alt="" />
         </button>
         <button
           onClick={() => handleCardClick("Recursos")}
           className="action-button"
         >
+          Recursos
           <img src={imgRecurso} alt="" />
         </button>
       </div>
