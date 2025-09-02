@@ -173,8 +173,15 @@ const Game = () => {
     >
       {finalCountdown !== null && (
         <div className="final-countdown">
-          <h2>⚠️ TURNOS RESTANTES: {finalCountdown} ⚠️</h2>
           <p>Solo quedan jugadores del mismo equipo</p>
+          <h3>
+            Los dinosaurios Probaron la sangre del los cadáveres y ahora van por
+            su siguente victima
+          </h3>
+          <h2>
+            ⚠️ TURNOS RESTANTES: {finalCountdown} PARA EL ATAQUE DE LOS
+            DINOSAURIOS ⚠️
+          </h2>
         </div>
       )}
 
