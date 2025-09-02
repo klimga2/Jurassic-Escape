@@ -143,8 +143,7 @@ const Game = () => {
     return (
       <div className="game-container game-over">
         <h1>¡GAME OVER!</h1>
-        <h2>Se agotaron los 5 turnos finales</h2>
-        <p>Solo quedaban jugadores del mismo equipo</p>
+        <h2>Los dinosaurios los alcanzron, fueron masacrados </h2>
         <button onClick={reiniciarJuego} className="restart-btn">
           Reiniciar Juego
         </button>
