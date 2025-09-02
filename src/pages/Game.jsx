@@ -239,7 +239,7 @@ const Game = () => {
               {activePlayers.map((jugador, index) => (
                 <div key={index} className="player-item">
                   <span
-                    className={`player-name team-${jugador.equipo.toLowerCase()}`}
+                    className={`player-name teams-${jugador.equipo.toLowerCase()}`}
                   >
                     {jugador.nombre} ({jugador.equipo})
                   </span>
