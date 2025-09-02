@@ -185,3 +185,230 @@
     transform: scale(0.96);
   }
 }
+/* Estilos para el contador final */
+.final-countdown {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+
+.final-countdown h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.final-countdown p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Botón para ver jugadores */
+.players-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 2px solid #ffffff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d1b0f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.players-btn:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Popup de jugadores */
+.popup-players {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 85%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.popup-players h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #3a2314;
+}
+
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+}
+
+.team-rojo {
+  color: #d35656;
+  background: #f5f5f5;
+}
+
+.team-azul {
+  color: #5b83df;
+  background: #f5f5f5;
+}
+
+.eliminate-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ff4444;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.eliminate-btn:hover {
+  background: #ff6666;
+  transform: translateY(-1px);
+}
+
+.eliminate-btn:active {
+  transform: scale(0.95);
+}
+
+.close-players-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #6b844b;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-players-btn:hover {
+  background: #7a9454;
+  transform: translateY(-1px);
+}
+
+/* Game Over styles */
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333 !important;
+  color: white;
+}
+
+.game-over h1 {
+  font-size: 3rem;
+  color: #ff4444;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-over h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.restart-btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: none;
+  background: #6b844b;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.restart-btn:hover {
+  background: #7a9454;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Botones deshabilitados */
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.action-button:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 767px) {
+  .players-btn {
+    position: static;
+    margin-bottom: 15px;
+    width: auto;
+  }
+
+  .final-countdown {
+    position: static;
+    transform: none;
+    margin-bottom: 15px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.Cambiar-Turno {
+  display: flex;
+  position: relative;
+  top: 7%;
+  justify-content: center;
+  margin-top: 20px;
+}
