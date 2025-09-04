@@ -82,8 +82,7 @@ const initialState = {
       nombre: "Bayas rojas",
       tipo: "Comida natural",
       descripcion: "Dulces pero arriesgadas: algunas nutren, otras envenenan.",
-      efecto:
-        "Restaura 4 de hambre o causa -1 de vida (se define al lanzar un dado)",
+      efecto: "Restaura 4 de hambre ",
       img: Recursogrande,
     },
     {
@@ -104,7 +103,7 @@ const initialState = {
       nombre: "Panal de miel",
       tipo: "Comida natural",
       descripcion: "Fuente de energía rápida.",
-      efecto: "Restaura 2 de vida y 2 de hambre",
+      efecto: "Puede curar 2 puntos de vida y te suma 2 de hambre.",
       img: Recursogrande,
     },
 
@@ -113,7 +112,8 @@ const initialState = {
       nombre: "Bebida energética",
       tipo: "Comida moderna",
       descripcion: "Restante de la nave. Da fuerza extra por un corto tiempo.",
-      efecto: "+1 de fuerza durante 1 turno, pero aumenta el hambre después",
+      efecto:
+        "Te da +1 fuerza durante 1 turno, pero en tu próximo turno, tu hambre baja +1 extra.",
       img: Recursogrande,
     },
     {
@@ -127,7 +127,7 @@ const initialState = {
       nombre: "Botella de agua",
       tipo: "Comida moderna",
       descripcion: "Agua purificada y fresca.",
-      efecto: "Restaura 2 de hambre y 1 de vida",
+      efecto: "Restaura 3 de hambre +1 de vida",
       img: Recursogrande,
     },
     {
@@ -334,19 +334,19 @@ const initialState = {
       nombre: "Flor gigante",
       descripcion:
         "Te encuentras con una planta gigante que se asemeja a una flor.",
-      efecto: "¿Deseas acercarte?",
+      efecto: "Lanza 1 dado por cada punto de Fuerza:",
       caso1:
-        "Si: El olor de la flor es tan llamativo que te abre el apetito. -1 hambre.",
-      caso2: "No: Te alejas de manera segura.",
+        "0-3  el olor de la flor es tan llamativo que te abre el apetito. -1 hambre",
+      caso2: "4+ : te alejas de manera segura.",
       img: Eventogrande,
     },
     {
       id: 5,
       nombre: "Arbusto de bayas moradas",
       descripcion: "Mientras caminas encuentras un arbusto de bayas moradas.",
-      efecto: "¿Deseas probar 1?",
-      caso1: "Si: Las bayas saben estupendo! +1 de fuerza, +1 de hambre.",
-      caso2: "No: Podrían ser venenosas! decides no comer ninguna baya.",
+      efecto: "Lanza 1 dado por cada punto de Fuerza",
+      caso1: "0 - 4 las bayas eran venenosas! pierdes 1 de fuerza.",
+      caso2: "5+ las bayas saben estupendo! +1 de fuerza, +3 de hambre",
       img: Eventogrande,
     },
     {
@@ -480,9 +480,9 @@ const initialState = {
         "¡Te has cruzado con el depredador más temido de la era jurásica!",
       efecto:
         "Lanza 1 dado por cada punto de Fuerza que tengas y suma los resultados.",
-      caso1: "Si tu total es 6 o más, logras escapar ileso.",
+      caso1: "Si tu total es 5 o más, logras escapar ileso.",
       caso2:
-        "Si tu total es menor a 6, recibes daño igual a la diferencia entre el poder del T-Rex y tu tirada.",
+        "Si tu total es menor a 5, recibes daño igual a la diferencia entre el poder del T-Rex y tu tirada.",
       recordatorio:
         "Si tienes un objeto con la habilidad de Defensa, puedes usarlo para ayudarte, pero solo uno.",
       img: Dinosauriogrande,
@@ -539,9 +539,9 @@ const initialState = {
         "Gigante y pacífico, pero un mal paso puede dejarte aplastado.",
       efecto:
         "Lanza 1 dado por cada punto de Fuerza que tengas y suma los resultados.",
-      caso1: "Si tu total es 2 o más, te apartas a tiempo.",
+      caso1: "Si tu total es 3 o más, te apartas a tiempo.",
       caso2:
-        "Si tu total es menor a 2, recibes daño igual a la diferencia entre el poder del Braquiosaurio y tu tirada.",
+        "Si tu total es menor a 3, recibes daño igual a la diferencia entre el poder del Braquiosaurio y tu tirada.",
       recordatorio:
         "Si tienes un objeto con la habilidad de Defensa, puedes usarlo para ayudarte, pero solo uno.",
       img: Dinosauriogrande,
@@ -569,9 +569,9 @@ const initialState = {
         "Un depredador colosal, igual de temible en tierra que en el agua.",
       efecto:
         "Lanza 1 dado por cada punto de Fuerza que tengas y suma los resultados.",
-      caso1: "Si tu total es 6 o más, logras escapar.",
+      caso1: "Si tu total es 5 o más, logras escapar.",
       caso2:
-        "Si tu total es menor a 6, recibes daño igual a la diferencia entre el poder del Espinosaurio y tu tirada.",
+        "Si tu total es menor a 5, recibes daño igual a la diferencia entre el poder del Espinosaurio y tu tirada.",
       recordatorio:
         "Si tienes un objeto con la habilidad de Defensa, puedes usarlo para ayudarte, pero solo uno.",
       img: Dinosauriogrande,
@@ -584,9 +584,9 @@ const initialState = {
         "El ave más grande que haya surcado los cielos, capaz de levantarte del suelo.",
       efecto:
         "Lanza 1 dado por cada punto de Fuerza que tengas y suma los resultados.",
-      caso1: "Si tu total es 3 o más, evitas sus garras.",
+      caso1: "Si tu total es 4 o más, evitas sus garras.",
       caso2:
-        "Si tu total es menor a 3, recibes daño igual a la diferencia entre el poder del Argentavis y tu tirada.",
+        "Si tu total es menor a 4, recibes daño igual a la diferencia entre el poder del Argentavis y tu tirada.",
       recordatorio:
         "Si tienes un objeto con la habilidad de Defensa, puedes usarlo para ayudarte, pero solo uno.",
       img: Dinosauriogrande,
@@ -613,9 +613,9 @@ const initialState = {
         "Un depredador rápido y brutal, experto en sorprender a su presa.",
       efecto:
         "Lanza 1 dado por cada punto de Fuerza que tengas y suma los resultados.",
-      caso1: "Si tu total es 5 o más, logras escapar.",
+      caso1: "Si tu total es 4 o más, logras escapar.",
       caso2:
-        "Si tu total es menor a 5, recibes daño igual a la diferencia entre el poder del Carnotauro y tu tirada.",
+        "Si tu total es menor a 4, recibes daño igual a la diferencia entre el poder del Carnotauro y tu tirada.",
       recordatorio:
         "Si tienes un objeto con la habilidad de Defensa, puedes usarlo para ayudarte, pero solo uno.",
       img: Dinosauriogrande,
