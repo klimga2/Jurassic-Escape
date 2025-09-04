@@ -1,12 +1,27 @@
-# React + Vite
+🦕 Jurassic Escape – Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a la aplicación web de Jurassic Escape, un juego de mesa con apoyo digital donde deberás explorar, sobrevivir y escapar de la era de los dinosaurios.
 
-Currently, two official plugins are available:
+Esta aplicación complementa el juego físico y permite gestionar partidas en línea.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Funcionalidades principales
 
-## Expanding the ESLint configuration
+Registro de jugadores: cada participante ingresa su nombre para unirse a la partida.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Formación de equipos: la aplicación asigna equipos automáticamente al inicio.
+
+Gestión de turnos: la app muestra el orden de los jugadores y notifica a quién le corresponde jugar.
+
+Sistema de cartas digitales: en su turno, cada jugador puede elegir uno de los 4 botones disponibles:
+
+🎴 Evento
+
+🛠️ Objeto
+
+🔧 Recurso
+
+🦖 Ataque de dinosaurio
+
+Eliminación de jugadores: si un jugador es derrotado en combate, puede ser eliminado desde la app.
+
+Última fase de la partida: si queda solo un jugador o dos del mismo equipo, la app activa una cuenta regresiva de 5 turnos restantes antes de que los dinosaurios devoren a todos.
